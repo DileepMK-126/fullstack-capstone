@@ -1,3 +1,3 @@
 curl http://localhost:8000/djangoapp/get_cars
 
-{"CarModels":[{"CarModel":"Camry","CarMake":"Toyota"},{"CarModel":"Corolla","CarMake":"Toyota"},{"CarModel":"Civic","CarMake":"Honda"},{"CarModel":"Accord","CarMake":"Honda"},{"CarModel":"Mustang","CarMake":"Ford"}]}
+{"CarModels":[{"CarModel":"Corolla","CarMake":"Toyota"},{"CarModel":"Camry","CarMake":"Toyota"},{"CarModel":"RAV4","CarMake":"Toyota"},{"CarModel":"Highlander","CarMake":"Toyota"},{"CarModel":"Prius","CarMake":"Toyota"},{"CarModel":"F-150","CarMake":"Ford"},{"CarModel":"Mustang","CarMake":"Ford"},{"CarModel":"Explorer","CarMake":"Ford"},{"CarModel":"Civic","CarMake":"Honda"},{"CarModel":"Accord","CarMake":"Honda"},{"CarModel":"CR-V","CarMake":"Honda"},{"CarModel":"Altima","CarMake":"Nissan"},{"CarModel":"Rogue","CarMake":"Nissan"},{"CarModel":"Silverado","CarMake":"Chevrolet"},{"CarModel":"Malibu","CarMake":"Chevrolet"}]}

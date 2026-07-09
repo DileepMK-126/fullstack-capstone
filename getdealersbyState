@@ -1,3 +1,3 @@
 curl http://localhost:8000/djangoapp/get_dealers/Kansas
 
-{"status":200,"dealers":[{"id":15,"city":"Topeka","state":"Kansas","address":"456 Oak Rd","zip":"66601","lat":39.0473,"long":-95.6752,"short_name":"Topeka Motors","full_name":"Topeka Motors Dealership"}]}
+{"status":200,"dealers":[{"id":8,"city":"Topeka","state":"Kansas","st":"KS","address":"288 Larry Place","zip":"66642","lat":39.0429,"long":-95.7697,"short_name":"Bytecard","full_name":"Bytecard Car Dealership"}]}
