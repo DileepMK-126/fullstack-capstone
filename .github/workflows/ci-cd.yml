@@ -1,0 +1,56 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+
+    - name: Install Python dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r server/requirements.txt
+        pip install flake8
+
+    - name: Lint with flake8
+      run: |
+        # stop the build if there are Python syntax errors or undefined names
+        flake8 server/djangoapp --count --select=E9,F63,F7,F82 --show-source --statistics
+        # exit-zero treats all errors as warnings
+        flake8 server/djangoapp --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+
+    - name: Install Node dependencies and test
+      run: |
+        cd server/database
+        npm install
+        # run npm test if configured
+
+    - name: Build React application
+      run: |
+        cd server/frontend
+        npm install
+        npm run build
+
+    - name: Build Docker Images (Dry Run)
+      run: |
+        docker build -t django-app:latest ./server
+        docker build -t node-app:latest ./server/database
+        docker build -t sentiment-app:latest ./server/djangoapp/microservices

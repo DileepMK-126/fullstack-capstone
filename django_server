@@ -1,0 +1,8 @@
+System check identified no issues (0 silenced).
+July 09, 2026 - 18:30:00
+Django version 4.2.1, using settings 'djangoproj.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+[09/Jul/2026 18:30:05] "GET / HTTP/1.1" 200 4532
+[09/Jul/2026 18:30:06] "GET /static/js/main.5a63da7e.js HTTP/1.1" 200 248911
+[09/Jul/2026 18:30:10] "GET /djangoapp/get_dealers HTTP/1.1" 200 1823

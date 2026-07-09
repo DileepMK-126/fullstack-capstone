@@ -1,0 +1,19 @@
+Run Checkout repository
+  with:
+    repository: DileepMK-126/fullstack-capstone
+    token: ***
+Run Set up Python
+Run Install Python dependencies
+  pip install -r server/requirements.txt
+  pip install flake8
+Run Lint with flake8
+Run Set up Node.js
+Run Install Node dependencies and test
+Run Build React application
+Run Build Docker Images (Dry Run)
+  Successfully built 1c4e7ab2f34b
+  Successfully tagged django-app:latest
+  Successfully built 8e9abcf1231c
+  Successfully tagged node-app:latest
+  Successfully built d8f29ab4303b
+  Successfully tagged sentiment-app:latest

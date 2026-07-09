@@ -1,0 +1,104 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: django-app
+  labels:
+    app: django-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: django-app
+  template:
+    metadata:
+      labels:
+        app: django-app
+    spec:
+      containers:
+      - name: django-app
+        image: us.icr.io/dealership-namespace/django-app:latest
+        ports:
+        - containerPort: 8000
+        env:
+        - name: backend_url
+          value: "http://node-service:3030"
+        - name: sentiment_analyzer_url
+          value: "http://sentiment-service:5050/"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: django-service
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 8000
+    targetPort: 8000
+  selector:
+    app: django-app
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-app
+  labels:
+    app: node-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: node-app
+  template:
+    metadata:
+      labels:
+        app: node-app
+    spec:
+      containers:
+      - name: node-app
+        image: us.icr.io/dealership-namespace/node-app:latest
+        ports:
+        - containerPort: 3030
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: node-service
+spec:
+  ports:
+  - port: 3030
+    targetPort: 3030
+  selector:
+    app: node-app
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sentiment-app
+  labels:
+    app: sentiment-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sentiment-app
+  template:
+    metadata:
+      labels:
+        app: sentiment-app
+    spec:
+      containers:
+      - name: sentiment-app
+        image: us.icr.io/dealership-namespace/sentiment-app:latest
+        ports:
+        - containerPort: 5050
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sentiment-service
+spec:
+  ports:
+  - port: 5050
+    targetPort: 5050
+  selector:
+    app: sentiment-app
