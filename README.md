@@ -1,6 +1,11 @@
-# IBM Full Stack Developer Capstone – Car Dealership Application
+# xrwvm-fullstack_developer_capstone
+
+**Project Name:** fullstack_developer_capstone
+
+IBM Full Stack Developer Capstone – Car Dealership Application
 
 A full-stack web application built as part of the **IBM Full Stack Software Developer Professional Certificate** Capstone Project.
+
 
 ## 📋 Project Overview
 
